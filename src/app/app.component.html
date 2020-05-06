@@ -1,12 +1,14 @@
-<overlay-scrollbars [options]="scrollOptions" #tabScrollbar>
-	<div cdkDropList [cdkDropListData]="items" (cdkDropListDropped)="onDrop($event)">
-		<div *ngFor="let item of items" cdkDrag class="example-box">
-			<span cdkDragHandle>
+<div class="page-wrap">
+	<overlay-scrollbars [options]="scrollOptions" #tabScrollbar>
+		<div cdkDropList [cdkDropListData]="items" (cdkDropListDropped)="onDrop($event)">
+			<div *ngFor="let item of items" cdkDrag class="example-box">
+				<span cdkDragHandle>
         =
 			</span>
-			<span>
+				<span>
 				{{item}}
       </span>
+			</div>
 		</div>
-	</div>
-</overlay-scrollbars>
+	</overlay-scrollbars>
+</div>

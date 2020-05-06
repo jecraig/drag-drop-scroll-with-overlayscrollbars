@@ -1,3 +1,7 @@
+.page-wrap s{
+  padding: 50px;
+}
+
 overlay-scrollbars {
   width: 500px;
   height: 500px;
@@ -6,7 +10,7 @@ overlay-scrollbars {
 .example-box {
   padding: 20px 10px;
   border-bottom: solid 1px #ccc;
-  color: rgba(0, 0, 0, 0.87);
+  color: white;
   display: flex;
   flex-direction: row;
   align-items: center;
