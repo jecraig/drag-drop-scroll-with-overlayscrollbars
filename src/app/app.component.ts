@@ -36,13 +36,12 @@ export class AppComponent implements AfterViewInit  {
     10,
     11,
     12,
-    13
+    13,
+    14
   ];
 
   ngAfterViewInit() {
-    setTimeout(() => {
     this.dropList._dropListRef.withScrollableParents([this.scrollableParent.osTarget().querySelector<HTMLElement>('.os-viewport')]);
-    }, 5000);
   }
 
   onDrop(event: CdkDragDrop<any>) {
