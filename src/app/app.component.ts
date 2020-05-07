@@ -7,18 +7,16 @@ import {
 import { OverlayScrollbarsComponent } from "overlayscrollbars-ngx";
 
 @Component({
-  selector: "codelab-root",
+  selector: "app-root",
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.scss"],
 })
 export class AppComponent implements AfterViewInit {
-  // Test commit
-
-  @ViewChild(CdkDropList) dropList: CdkDropList;
+  @ViewChild("overlayscrollbarDropList") overlayscrollbarDropList: CdkDropList;
   @ViewChild(OverlayScrollbarsComponent)
-  scrollableParent: OverlayScrollbarsComponent;
+  overlayscrollbarScroller: OverlayScrollbarsComponent;
 
-  public scrollOptions = {
+  public overlayscrollbarsOptions = {
     overflowBehavior: {
       y: "scroll",
       x: "hidden",
@@ -29,15 +27,15 @@ export class AppComponent implements AfterViewInit {
     },
   };
 
-  items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
+  overlayscrollbarItems = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
 
   ngAfterViewInit() {
-    this.setParentScroll();
+    this.setOverlayscrollbarsParentScroll();
   }
 
-  setParentScroll() {
-    this.dropList._dropListRef.withScrollableParents([
-      this.scrollableParent
+  setOverlayscrollbarsParentScroll() {
+    this.overlayscrollbarDropList._dropListRef.withScrollableParents([
+      this.overlayscrollbarScroller
         .osTarget()
         .querySelector<HTMLElement>(".os-viewport"),
     ]);
