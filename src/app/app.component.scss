@@ -1,6 +1,12 @@
+.basic-scroll-parent,
 overlay-scrollbars {
   width: 500px;
   height: 500px;
+}
+
+.basic-scroll-parent {
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .example-box {

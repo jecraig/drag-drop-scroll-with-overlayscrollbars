@@ -1,3 +1,24 @@
+<div class="card bg-dark text-light mb-3">
+  <div class="card-header">Basic Example</div>
+  <div class="card-body">
+    <button (click)="setBasicParentScroll()" class="mb-3 btn btn-primary">
+      Set Basic withScrollableParents
+    </button>
+    <div class="basic-scroll-parent" #basicScrollParent>
+      <div
+        cdkDropList
+        #basicDropList="cdkDropList"
+        [cdkDropListData]="basicItems"
+        (cdkDropListDropped)="onDrop($event)"
+      >
+        <div *ngFor="let item of basicItems" cdkDrag class="example-box">
+          {{ item }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="card bg-dark text-light">
   <div class="card-header">Overlayscrollbars Example</div>
   <div class="card-body">

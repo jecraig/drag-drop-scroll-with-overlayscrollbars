@@ -1,4 +1,4 @@
-import { Component, ViewChild, AfterViewInit } from "@angular/core";
+import { Component, ViewChild, AfterViewInit, ElementRef } from "@angular/core";
 import {
   CdkDragDrop,
   moveItemInArray,
@@ -12,11 +12,14 @@ import { OverlayScrollbarsComponent } from "overlayscrollbars-ngx";
   styleUrls: ["./app.component.scss"],
 })
 export class AppComponent implements AfterViewInit {
+  @ViewChild("basicDropList") basicDropList: CdkDropList;
+  @ViewChild("basicScrollParent") basicScrollParent: ElementRef<HTMLElement>;
+
   @ViewChild("overlayscrollbarDropList") overlayscrollbarDropList: CdkDropList;
   @ViewChild(OverlayScrollbarsComponent)
   overlayscrollbarScroller: OverlayScrollbarsComponent;
 
-  public overlayscrollbarsOptions = {
+  overlayscrollbarsOptions = {
     overflowBehavior: {
       y: "scroll",
       x: "hidden",
@@ -27,9 +30,11 @@ export class AppComponent implements AfterViewInit {
     },
   };
 
+  basicItems = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
   overlayscrollbarItems = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
 
   ngAfterViewInit() {
+    this.setBasicParentScroll();
     this.setOverlayscrollbarsParentScroll();
   }
 
@@ -38,6 +43,12 @@ export class AppComponent implements AfterViewInit {
       this.overlayscrollbarScroller
         .osTarget()
         .querySelector<HTMLElement>(".os-viewport"),
+    ]);
+  }
+
+  setBasicParentScroll() {
+    this.basicDropList._dropListRef.withScrollableParents([
+      this.basicScrollParent.nativeElement,
     ]);
   }
 
