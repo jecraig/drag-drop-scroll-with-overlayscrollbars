@@ -1,12 +1,8 @@
-import { Component, ViewChild, AfterViewInit, ElementRef } from "@angular/core";
+import { Component, ViewChild, AfterViewInit } from "@angular/core";
 import {
   CdkDragDrop,
   moveItemInArray,
   CdkDropList,
-  CdkDragStart,
-  CdkDragRelease,
-  CdkDragMove,
-  DropListRef,
 } from "@angular/cdk/drag-drop";
 import { OverlayScrollbarsComponent } from "overlayscrollbars-ngx";
 
